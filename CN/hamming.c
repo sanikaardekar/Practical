@@ -189,3 +189,5 @@ int main()
 
     return 0;
 }
+//in 1st 4 bits only
+//in 2nd 7 bits only
