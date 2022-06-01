@@ -1,60 +1,38 @@
-#include <stdio.h>
-#include <string.h>
-int main()
+import java.util.*;
+
+public class charCounting
 {
-    int i, j, k, l, count = 0, n;
-    char s[100], cs[50];
-    printf("Enter the bit string : ");
-    scanf("%s", s);
-    n = strlen(s);
-    printf("\nString is : ");
-    for (i = 0; i < n; i++)
-
-    {
-
-        if (s[i] == s[i + 1])
-
-        {
-
-            count = 2;
-            i++;
-            while (s[i] == s[i + 1])
-
-            {
-                i++;
-                count++;
-            }
-
-            if (count >= 5)
-
-            {
-                printf("$");
-                if (count < 10)
-
-                {
-
-                    printf("0");
-                }
-
-                printf("%d%c", count, s[i]);
-
-                i++;
-            }
-            else
-
-            {
-
-                for (j = 0; j < count; j++)
-                    printf("%c", s[i]);
-                i++;
-            }
-        }
-        else
-
-        {
-
-            printf("%c", s[i]);
-            i++;
-        }
-    }
+public static void main(String[] args)
+{
+int n;
+String ans="";
+String rec_data;
+Scanner sc = new Scanner(System.in);
+System.out.print("Enter the number of data frames: ");
+n=sc.nextInt();
+String data[] = new String[n];for(int i=0;i<n;i++)
+{
+System.out.print("Enter data: ");
+data[i]=sc.next();
+ans=ans+String.valueOf(data[i].length()+1);
+ans=ans+data[i];
+}
+System.out.println("\n"+"Frames created: "+ans);
+System.out.println("\nReceiver side: ");
+System.out.print("Enter the received data: ");
+rec_data = sc.next();
+int c=0;
+while(n!=0)
+{
+int l=Integer.parseInt(String.valueOf(rec_data.charAt(c)));
+c++;
+while(l>1)
+{
+System.out.print(rec_data.charAt(c));
+l--;
+c++;
+}
+System.out.print("\n");n--;
+}
+}
 }
