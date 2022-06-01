@@ -1,4 +1,4 @@
-# DSA
-Data Structures and Algorithm in C, C++ and/or Java </br>
-OS and CN lab Practicals
+# Practical_ SEM4
+Languages: C, C++ and/or Java </br>
+AOA, OS and CN lab Practicals
 
