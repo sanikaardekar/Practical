@@ -96,9 +96,9 @@ void detect_correct()
     }
     printf("\n");
     int arr[3];
-    int p1=h[1]+h[3]+h[5]+h[7];
-    int p2=h[2]+h[3]+h[6]+h[7];
-    int p4=h[4]+h[5]+h[6]+h[7];
+    int p1=h[1]+h[3]+h[5]+h[7];//1357
+    int p2=h[2]+h[3]+h[6]+h[7];//2367
+    int p4=h[4]+h[5]+h[6]+h[7];//4567
         if(p1%2==0)
         {
             printf("No error in p1\n");
@@ -137,12 +137,12 @@ void detect_correct()
     for (i=1;i<=3;i++)
         k = 10 * k + arr[i];
     printf("\nThe binary equivalent is %d\n",k);
-    int binary_num, decimal_num = 0, base = 1, rem;  
+    int binary_num, decimal_num = 0, base = 1, rem;  //rem
   
     binary_num = k; 
       
       
-    while ( k > 0)  
+    while ( k > 0)  //remember
     {  
         rem = k % 10;  
         decimal_num = decimal_num + rem * base;  
