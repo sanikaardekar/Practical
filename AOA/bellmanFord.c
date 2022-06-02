@@ -14,7 +14,6 @@ int graph[][7] = {
 int d[7];
 int par[7];
 int infi = 100000;
-int s = 1;
 int v=7;
 
 int main()
@@ -25,9 +24,9 @@ int main()
         d[i] = infi;
         par[i] = 500;
     }
-    d[s-1] = 0;
+    d[0] = 0;
 
-    for(int i=0;i<v-1;i++){
+    for(int i=0;i<v-1;i++){//i-->v-1
         for(int j=0;j<v;j++){
             for(int k=0;k<v;k++){
                 if(graph[j][k]!=0){
@@ -42,9 +41,9 @@ int main()
 //negative cycle check
     for(int i=0;i<v;i++){
         for(int j=0;j<7;j++){
-            if(d[i] + graph[i][j] < d[i]){
-                for(int i=0;i<7;i++){
-                printf("node = %d parent = %d dist = %d \n",i+1,par[i],d[i]);
+            if(d[i] + graph[i][j] < d[j]){
+                for(int k=0;k<7;k++){
+                printf("node = %d parent = %d dist = %d \n",k+1,par[k],d[k]);
                 }
                 printf("Graph contains negative cycle");
                 return 0;
@@ -59,3 +58,4 @@ int main()
 
     return 0;
 }
+![image](https://user-images.githubusercontent.com/80094199/171723504-252dbdef-aedc-47bd-ba32-691bd7c6e971.png)

@@ -4,21 +4,21 @@
 int z = 4;
 int a[4];
 
-int place(int j,int p){
-    for(int x = 0;x<j;x++){
-        if(a[x] == p || abs(a[x]-p) == abs(x-j)){
-            return 0;
+int place(int k,int i){
+    for(int j = 0;j<k;j++){
+        if(a[j] == i || abs(a[j]-i) == abs(j-k)){
+            return 0;//flse
         }
     }
-    return 1;
+    return 1;//true
 }
 
 void Nqueen(int k,int n){
     for(int i=0;i<n;i++){
         if(place(k,i) == 1){
-            a[k] = i;
-            if(k == n-1){
-                for(int u=0;u<n;u++){
+            a[k] = i;//imppp
+            if(k == n-1){//impp
+                for(int u=0;u<n;u++){//printing
                     printf("%d ",a[u]);
                 }
                 printf("\n");
