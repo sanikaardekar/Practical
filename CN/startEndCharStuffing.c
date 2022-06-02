@@ -3,7 +3,7 @@
 int main()
 {
         char a[30], fs[50] = " ", t[3], sd, ed, x[3], s[3], d[3], y[3];
-        int i, j, p = 0, q = 0;
+        int i;
         printf("Enter characters to be stuffed:");
         scanf("%s", a);
         printf("\nEnter a character that represents starting delimiter:");
@@ -13,9 +13,9 @@ int main()
         x[0] = s[0] = s[1] = sd;
         x[1] = s[2] = '\0';
         y[0] = d[0] = d[1] = ed;
-        d[2] = y[1] = '\0';
+        y[1] = d[2] = '\0';
         strcat(fs, x);
-        for(i = 0; i < strlen(a); i++)
+        for(i = 0; i < strlen(a); i++)//impp
         {
             t[0] = a[i];
             t[1] = '\0';
@@ -25,7 +25,7 @@ int main()
                 strcat(fs, d);
             else
                 strcat(fs, t);
-        }
+        }//impp
         strcat(fs, y);
         printf("\n After stuffing:%s", fs);
         return 0;

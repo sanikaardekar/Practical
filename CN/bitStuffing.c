@@ -11,27 +11,27 @@ void main()
         scanf("%d", &a[i]);
     }
     i = 0;
-    count = 1;
+    count = 1;//impp
     j = 0;
     while (i < n)
     {
-        if (a[i] == 1)
+        if (a[i] == 1)//1
         {
             b[j] = a[i];
             for (k = i + 1; a[k] == 1 && k < n && count < 5; k++)
             {
                 j++;
-                b[j] = a[k];
+                b[j] = a[k];//1
                 count++;
                 if (count == 5)
                 {
                     j++;
-                    b[j] = 0;
+                    b[j] = 0;//0
                 }
                 i = k;
             }
         }
-        else
+        else//0
         {
             b[j] = a[i];
         }
@@ -39,7 +39,7 @@ void main()
         j++;
     }
     printf("String after bit stuffing is : ");
-    for (i = 0; i < j; i++)
+    for (i = 0; i < j; i++)// i to j
     {
         printf("%d", b[i]);
     }
