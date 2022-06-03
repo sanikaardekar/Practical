@@ -40,8 +40,8 @@ void unioN(int x,int y){
 }
 int min(){        //finding edge with minimum cost
     int minm=100;
-    for(int i=0;i<n;i++){
-        for(int j=i;j<n;j++){
+    for(int i=0;i<n;i++){//0 to n
+        for(int j=i;j<n;j++){//i to n
             if(G[i][j]!=0 && G[i][j]<minm){
                 minm=G[i][j];
                 minans[0]=i;
@@ -69,7 +69,7 @@ void kruskal(){
         G[minans[0]][minans[1]]=0;
         G[minans[1]][minans[0]]=0;
     }
-    for(int i=0;i<count;i++){
+    for(int i=0;i<count;i++){//0 to count
         printf("(%d,%d)\t",soli[i],solj[i]);
     }
     printf("Total cost %d",cost);

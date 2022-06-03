@@ -10,7 +10,7 @@ void Print_LCS(int b[m][n], char x[m], int i, int j)
     }
     if (b[i][j] == 0)
     {
-       // Print_LCS(b, x, i - 1, j - 1);
+       Print_LCS(b, x, i - 1, j - 1);
         printf("%c ", x[i - 1]);
     }
     else if (b[i][j] == 1)
@@ -37,33 +37,33 @@ int main()
     int b[m][n];
     int c[m + 1][n + 1];
 
-    for (int i = 0; i <= m; i++)
+    for (int i = 0; i <= m; i++)// 0 to =m
     {
         c[i][0] = 0;
     }
-    for (int j = 0; j <= n; j++)
+    for (int j = 0; j <= n; j++)//0 to =n
     {
         c[0][j] = 0;
     }
 
-    for (int i = 1; i <= m; i++)
+    for (int i = 1; i <= m; i++)//1 to =m
     {
-        for (int j = 1; j <= n; j++)
+        for (int j = 1; j <= n; j++)// 1 to =n 
         {
             if (s1[i - 1] == s2[j - 1])
             {
                 c[i][j] = c[i - 1][j - 1] + 1;
-                b[i][j] = 0;
+                b[i][j] = 0;//diagonal
             }
             else if (c[i - 1][j] >= c[i][j - 1])
             {
                 c[i][j] = c[i - 1][j];
-                b[i][j] = 1;
+                b[i][j] = 1;//up
             }
             else
             {
                 c[i][j] = c[i][j - 1];
-                b[i][j] = 2;
+                b[i][j] = 2;//left
             }
         }
     }
