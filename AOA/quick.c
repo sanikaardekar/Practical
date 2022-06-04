@@ -1,106 +1,98 @@
-#include<stdio.h> 
-#include<time.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 
-int n;
-
-void swap(int *c,int *d)
+void swap(int *a, int *b)
 {
-    int t = *c;
-    *c = *d;
-    *d = t;
+    int t = *a;
+    *a = *b;
+    *b = t;
 }
 
-int partition(int a[],int s,int e)
+int partition(int array[], int low, int high)
 {
-    int pivot = a[s];
-    int start = s;
-    int end = e;
-    while(start<end)
+
+    int pivot = array[high];
+
+    int i = (low - 1);
+
+    for (int j = low; j < high; j++)
     {
-        while(a[start]<=pivot)
+        if (array[j] <= pivot)
         {
-            start++;
-        }
-        while(a[end]>pivot)
-        {
-            end--;
-        }
-        if(start<end)
-        {
-            swap(&a[start],&a[end]);
+
+            i++;
+
+            swap(&array[i], &array[j]);
         }
     }
-    swap(&a[s],&a[end]);
-    return end;
+
+    swap(&array[i + 1], &array[high]);
+
+    return (i + 1);
 }
 
-void quicksort(int a[],int s,int e)
+void quickSort(int array[], int low, int high)
 {
-    if(s<e)
+    if (low < high)
     {
-        int loc = partition(a,s,e);
-        quicksort(a,s,loc-1);
-        quicksort(a,loc+1,e);
+
+        int pi = partition(array, low, high);
+
+        quickSort(array, low, pi - 1);
+
+        quickSort(array, pi + 1, high);
     }
 }
 
-
-int main() 
-{ 
-    int n=11; 
-    int arr[] = {0,1,2,3,4,5,6,7,8,9,10}; 
-    clock_t begin = clock();
-    quicksort(arr,0,10);
-    clock_t end = clock();
-    printf("Time taken for array of 10 = %ld",end-begin);
-
-    int r = 100;
-    int arr2[r];
-    for(int i=0;i<r;i++){
-        arr2[i] = rand();
-    }
-    // printf("Hello");
-    // for(int i=0;i<50;i++){
-    //     printf("%d",arr2[i]);
-    // }
-    printf("\n");
-    clock_t s = clock();
-    quicksort(arr2,0,r);
-    clock_t e = clock()-s;
-    float x=((double)e);
-    printf("Time taken for sorting array of %d %f ",r,x);
-    
-    // int r = 50000;
-    int arr3[r];
-    int z = 0;
-    for(int i=0;i<r;i++){
-        arr3[i] = z;
-        z++;
+int main()
+{
+    int num = 50000;
+    int arr[num], r;
+    srand(time(NULL));
+    for (int i = 0; i < num; i++)
+    {
+        r = rand() % num;
+        arr[i] = r;
     }
 
-    printf("\n");
-    clock_t s1 = clock();
-    quicksort(arr3,0,r);
-    clock_t e1 = clock()-s1;
-    float x1=((double)e1);
-    printf("Time taken for sorting array of %d in ascending order %f ",r,x1);
-    
+    // avg case
+    //  printf("\nArray-\n");
+    //  for(int i=0;i<num;i++){
+    //  printf("%d ",arr[i]);
+    //  }
+    clock_t begin1 = clock();
+    quickSort(arr, 0, num - 1);
+    clock_t end1 = clock();
+    double time_spent1 = (double)(end1 - begin1) / CLOCKS_PER_SEC;
 
-    int arr4[r];
-    int t = r;
-    for(int i=0;i<r;i++){
-        arr4[i] = t;
-        t--;
+    printf("\nAverage Case (Random Order): Time taken by Quick Sort:%f \n", time_spent1);
+
+    // Best case
+
+    begin1 = clock();
+    quickSort(arr, 0, num - 1);
+    end1 = clock();
+    time_spent1 = (double)(end1 - begin1) / CLOCKS_PER_SEC;
+
+    printf("\nSorted Array Case (Increasing Order):: Time taken by Quick Sort:%f \n", time_spent1);
+
+    // Worst Case
+    int temp, j = num - 1;
+    for (int i = 0; i < num / 2; i++)
+    {
+        temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+        j = j - 1;
     }
 
-    printf("\n");
-    clock_t s2 = clock();
-    quicksort(arr4,0,r);
-    clock_t e2 = clock()-s2;
-    float x2=((double)e2);
-    printf("Time taken for sorting array of %d in descending order %f ",r,x2);
+    clock_t begin2 = clock();
+    quickSort(arr, 0, num - 1);
+    clock_t end2 = clock();
+    double time_spent2 = (double)(end2 - begin2) / CLOCKS_PER_SEC;
 
+    printf("\nSorted Array Case (Decresing Order):: Time taken by Quick Sort:%f \n", time_spent2);
+    return 0;
+}
 
-    return  0; 
-} 
