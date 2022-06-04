@@ -18,7 +18,7 @@ void producer()
     scanf("%d", &a);
     Wait(&e);
     Wait(&s);
-    b[n] = a;
+    b[n] = a;           //essn
     Signal(&s);
     Signal(&n);
     for (int i = 0; i < n; i++)
@@ -34,7 +34,7 @@ void consumer()
     Wait(&s);
     for (int i = 1; i < n; i++)
     {
-        b[i - 1] = b[i];
+        b[i - 1] = b[i];            //nsse
     }
     Signal(&s);
     Signal(&e);
