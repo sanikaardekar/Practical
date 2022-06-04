@@ -22,7 +22,7 @@ int main()
 
     for(int i=0;i<7;i++){
         d[i] = infi;
-        par[i] = 500;
+        par[i] = -1;
     }
     d[0] = 0;
 
@@ -58,4 +58,3 @@ int main()
 
     return 0;
 }
-![image](https://user-images.githubusercontent.com/80094199/171723504-252dbdef-aedc-47bd-ba32-691bd7c6e971.png)
