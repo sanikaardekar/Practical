@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main(){
-    int slots[4] = {100,200,300,400};
-    int process[4] = {300, 450, 125, 50};
+    int slots[4] = {80,20,40,60};
+    int process[4] = {25,30,10,45};
    
     for (int i=0;i<4;i++) // for every process
     { 

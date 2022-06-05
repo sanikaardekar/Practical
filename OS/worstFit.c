@@ -1,5 +1,5 @@
 #include<stdio.h>
-void main()
+int main()
 {
     int bsize[20],psize[20];
     int all[20],m,n,i,j;
@@ -18,10 +18,10 @@ void main()
         scanf("%d",&psize[i]);
         all[i]=-1;
     }
-    for(i=0;i<n;i++)
+    for(i=0;i<n;i++)        //each process
     {
         int worstplace =-1;
-        for(j=0;j<m;j++)
+        for(j=0;j<m;j++)        //each batch
         {
             if(bsize[j]>=psize[i])
             {
@@ -44,6 +44,7 @@ void main()
         if(all[i]!=-1)
             printf("%d\n",all[i]+1);
         else
-            printf("Not Allocated");
+            printf("Not Allocated\n");
     }
+    return 0;
 }
