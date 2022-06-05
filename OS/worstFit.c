@@ -46,5 +46,8 @@ int main()
         else
             printf("Not Allocated\n");
     }
+    for(int i=0;i<m;i++){
+        printf("%d ",bsize[i]);
+    }
     return 0;
 }
