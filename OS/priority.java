@@ -15,7 +15,6 @@ public class priority {
         float avgTAT = 0;
         float avgWT = 0;
         int end;
-        int sum = 0;
         int i, j, smallest, count = 0, time;
         int[] x = new int[n]; // x
         for (i = 0; i < n; i++) {
