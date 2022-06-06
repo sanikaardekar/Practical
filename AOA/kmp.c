@@ -45,7 +45,7 @@ void KMP(const char* text, const char* pattern, int m, int n)
         }
         else if (j > 0)
         {
-            j = next[j];
+            j = next[j]; 
             i--;    // since `i` will be incremented in the next iteration
         }
     }

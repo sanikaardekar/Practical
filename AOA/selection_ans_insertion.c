@@ -40,7 +40,7 @@ int main()
 {
     int num = 50000;
     int r, arr[num], arr2[num];
-    srand(time(NULL));
+    srand(time(NULL));            //impppp
     for (int i = 0; i < num; i++)
     {
         r = rand() % num;
