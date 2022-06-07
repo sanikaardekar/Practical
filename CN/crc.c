@@ -52,7 +52,6 @@ int main()
     }
     printf("\n");
     int dividend[n1 + n - 1];
-    int arr[n - 1]; // nu
     for (int i = 0; i < n1; i++)
     {
         dividend[i] = data[i];
@@ -64,12 +63,6 @@ int main()
 
     rem[n];
     int i, j;
-
-    for (int i = 0; i < n1 + n - 1; i++)
-    {
-        printf("%d", dividend[i]);
-    }
-    printf("\n");
     int dup[n1 + n - 1]; //copying dividend in dup
     for (i = 0; i < n1 + n - 1; i++)
     {
@@ -84,11 +77,7 @@ int main()
         }
     }//rem this
     printf("\n");
-    for (i = 0; i < n1 + n - 1; i++)
-    {
-        printf("%d", dividend[i]);
-    }
-    printf("\n");
+
     for (i = 0; i < n1 + n - 1; i++)
     {
         printf("%d", dup[i]);
