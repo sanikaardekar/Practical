@@ -1,0 +1,24 @@
+for $x in doc("C:\Users\SAMEER\OneDrive\Desktop\CP\adbms\books.xml")/catalog/book
+where $x/price>30
+order by $x/title
+return $x
+
+for $x in doc("books.xml")/catalog/book
+where $x/genre="Fantasy"
+order by $x/publish_date
+return $x
+
+for $x in doc("books.xml")/catalog/book
+return if ($x/genre="Computer")
+then <valid>{data($x/title)}</valid>
+else <invalid>{data($x/title)}</invalid>
+
+
+for $x in doc("books.xml")/catalog/book
+where string-length(data($x/description))<110
+order by $x/@id
+return <valid_description>{$x/title}</valid_description>
+
+for $x in doc("books.xml")/catalog/book
+order by $x/title
+return <info>ID: {data($x/@id)} Title: {data($x/title)}</info>
