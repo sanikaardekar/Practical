@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch server",
+      "request": "launch",
+      "mainClass": "server",
+      "projectName": "CP_383ce62e"
+    },
+    {
+      "type": "java",
       "name": "Launch client1",
       "request": "launch",
       "mainClass": "client1",
