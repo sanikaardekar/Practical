@@ -1,0 +1,35 @@
+select * from payment;
+
+explain select payment_date, amount, payment_id
+from payment
+group by amount
+having amount>5.00;
+
+select * from rental;
+
+explain select sum(inventory_id) from inventory;
+
+select * from film;
+
+explain select film_id, title, length, release_year from film where release_year in 
+(select release_year from film where release_year=2006);
+
+select release_year,title from film where release_year=2006;
+
+explain select stf.first_name, stf.last_name, ad.address, ad.district, ad.postal_code, ad.city_id
+from staff stf
+join address ad
+on stf.address_id=ad.address_id;
+
+explain select flm.title, flm.film_id, count(*) number_of_actors
+from film as flm
+right join film_actor as flm_act
+on flm.film_id=flm_act.film_id
+group by flm.title
+order by number_of_actors desc;
+
+
+
+
+
+
