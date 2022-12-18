@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch client1",
+      "request": "launch",
+      "mainClass": "client1",
+      "projectName": "CP_383ce62e"
+    },
+    {
+      "type": "java",
+      "name": "Launch server2p",
+      "request": "launch",
+      "mainClass": "server2p",
+      "projectName": "CP_383ce62e"
+    },
+    {
+      "type": "java",
       "name": "Launch test",
       "request": "launch",
       "mainClass": "test",
@@ -45,7 +59,9 @@
       "pipeTransport": {
         "debuggerPath": "/usr/bin/gdb",
         "pipeProgram": "${env:windir}\\system32\\bash.exe",
-        "pipeArgs": ["-c"],
+        "pipeArgs": [
+          "-c"
+        ],
         "pipeCwd": ""
       },
       "setupCommands": [
