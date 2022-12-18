@@ -1,0 +1,69 @@
+select * from actor;
+
+select * from actor where upper(last_name) like '%GEN%';
+
+optimize table actor;
+
+select concat(first_name, " ", last_name) as name, email 
+from customer where customer_id in 
+(select customer_id from rental where inventory_id in
+(select inventory_id from inventory where film_id in
+(select film_id from film_category join category using (category_id) where category.name= 'Action') ));
+
+optimize table customer, rental, inventory, category;
+
+select stf.first_name, stf.last_name, ad.address, ad.district, ad.postal_code, ad.city_id
+from staff stf
+left join address ad
+on stf.address_id=ad.address_id;
+
+optimize table address, staff;
+
+select * from film;
+
+select flm.title, flm.film_id, count(*) number_of_actors
+from film as flm
+right join film_actor as flm_act
+on flm.film_id=flm_act.film_id
+group by flm.title
+order by number_of_actors desc;
+
+optimize table film, film_actor;
+
+select flm.title, flm.film_id, count(*) number_of_actors
+from film as flm
+inner join film_actor as flm_act
+on flm.film_id=flm_act.film_id
+group by flm.title
+order by number_of_actors desc;
+
+optimize table film, film_actor;
+
+select flm.title, flm.film_id, count(*) number_of_actors
+from film as flm
+cross join film_actor as flm_act
+on flm.film_id=flm_act.film_id
+group by flm.title
+order by number_of_actors desc;
+
+optimize table film, film_actor;
+
+create index length on film(length);
+select * from film where length=120;
+
+create index first_name on customer(first_name);
+select concat(first_name, " ", last_name) as name, email 
+from customer where customer_id in 
+(select customer_id from rental where inventory_id in
+(select inventory_id from inventory where film_id in
+(select film_id from film_category join category using (category_id) where category.name= 'Action') ));
+
+create index rental_duration on film(rental_duration);
+select flm.title, flm.film_id, count(*) number_of_actors
+from film as flm
+left join film_actor as flm_act
+on flm.film_id=flm_act.film_id
+group by flm.rental_duration
+order by number_of_actors desc;
+
+
